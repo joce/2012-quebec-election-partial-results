@@ -3,7 +3,7 @@
 
 Résultats
 ---------
-* [Résultats incomplets de La Presse, incluant les donnés de langage du ressensement de 2006](https://github.com/joce/2012-quebec-election-partial-results/blob/master/LaPresse_data_2012.csv)
+* [Résultats incomplets de La Presse, incluant les donnés de langage du recensement de 2006](https://github.com/joce/2012-quebec-election-partial-results/blob/master/LaPresse_data_2012.csv)
 * [Résultats préliminaires tels que trouvés sur le site du DGE](https://github.com/joce/2012-quebec-election-partial-results/blob/master/qc2012_resultats.csv)
 * [Noms des candidats par circonscription et par parti](https://github.com/joce/2012-quebec-election-partial-results/blob/master/qc2012_candidats.csv)
 * [Liste des identificateurs du DGE pour chaque circonscription](https://github.com/joce/2012-quebec-election-partial-results/blob/master/circonscriptions.csv)
