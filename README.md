@@ -1,5 +1,5 @@
-﻿Résultats préliminaires des élections générales du Québec de 2012
-=================================================================
+﻿Résultats préliminaires des élections générales Québec 2012
+===========================================================
 
 Résultats
 ---------
@@ -8,8 +8,8 @@ Résultats
 * [Noms des candidats par circonscription et par parti](https://github.com/joce/2012-quebec-election-partial-results/blob/master/qc2012_candidats.csv)
 * [Liste des identificateurs du DGE pour chaque circonscription](https://github.com/joce/2012-quebec-election-partial-results/blob/master/circonscriptions.csv)
 
-Bref explication du pourquoi
-----------------------------
+Breve explication du pourquoi
+-----------------------------
 J'ai tenté en vain de trouver les résultats préliminaires des élections en format électronique. J'ai trouvé les résultats prémâchés (i.e. seulement les pourcentages des principaux partis) 
 sur le site de [La Presse](http://www.lapresse.ca/actualites/elections-quebec-2012/analysez-les-resultats-du-scrutin-quebec-2012/). Et encore, l'information était cachée dans un fichier .CSV
 qui était lu par un .js loadé par la page. L'avantage du data de La Presse, c'est qu'il inclus de l'information quand à la composition linguisitique de chaque circonscription.
