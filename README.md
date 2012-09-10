@@ -8,7 +8,7 @@ Résultats
 * [Noms des candidats par circonscription et par parti](https://github.com/joce/2012-quebec-election-partial-results/blob/master/qc2012_candidats.csv)
 * [Liste des identificateurs du DGE pour chaque circonscription](https://github.com/joce/2012-quebec-election-partial-results/blob/master/circonscriptions.csv)
 
-Breve explication du pourquoi
+Brève explication du pourquoi
 -----------------------------
 J'ai tenté en vain de trouver les résultats préliminaires des élections en format électronique. J'ai trouvé les résultats prémâchés (i.e. seulement les pourcentages des principaux partis) 
 sur le site de [La Presse](http://www.lapresse.ca/actualites/elections-quebec-2012/analysez-les-resultats-du-scrutin-quebec-2012/). Et encore, l'information était cachée dans un fichier .CSV
