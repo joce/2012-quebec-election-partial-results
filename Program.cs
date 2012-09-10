@@ -1,15 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace DGE_scraper
 {
-    using System.Text;
-
     class Program 
     {
         private class Candidate
@@ -22,7 +19,6 @@ namespace DGE_scraper
         private class Riding
         {
             public string Name;
-            public int ValidVotes;
             public int RejectedVotes;
             public int RegisteredVoters;
             public IDictionary<string, Candidate> Candidates;
@@ -32,14 +28,10 @@ namespace DGE_scraper
         {
             public int Compare(string a, string b)
             {
-                if (a == string.Empty)
+                if (a == string.Empty || b == string.Empty)
                 {
-                    return b == string.Empty ? 0 : 1;
-                }
-
-                if (b == string.Empty)
-                {
-                    return -1;
+                    // empty strings come last, not first.
+                    return - a.CompareTo(b);
                 }
 
                 if (a.StartsWith("IND"))
@@ -59,18 +51,10 @@ namespace DGE_scraper
         static void Main()
         {
             var ridings = GetRidings().ToArray();
-            var partyNames = ridings.SelectMany(r => r.Candidates)
-                                    .Select(kvp => kvp.Key)
+            var partyNames = ridings.SelectMany(r => r.Candidates.Keys)
                                     .Distinct()
                                     .OrderBy(p => p, new PartyComparer())
                                     .ToArray();
-
-            var mep = ridings.Where(r => r.Candidates.ContainsKey(""));
-
-            foreach (var riding in mep)
-            {
-                Debug.WriteLine(riding.Name);
-            }
 
             WriteVoteCsv(ridings, partyNames);
             WriteCandidatesCsv(ridings, partyNames);
@@ -100,7 +84,6 @@ namespace DGE_scraper
         } 
 
         private static readonly Regex ridingRegex = new Regex("^var Circ = \"(.+)\"", RegexOptions.Compiled|RegexOptions.Multiline);
-        private static readonly Regex validVotesRegex = new Regex("^var VotesValTot = \"([0-9\\s]+)\"", RegexOptions.Compiled|RegexOptions.Multiline);
         private static readonly Regex rejectedVotesRegex = new Regex("^var VotesRejTot = \"([0-9\\s]+)\"", RegexOptions.Compiled|RegexOptions.Multiline);
         private static readonly Regex registeredVotersRegex = new Regex("^var NbElectInscr = \"([0-9\\s]+)\"", RegexOptions.Compiled|RegexOptions.Multiline);
 
@@ -109,7 +92,6 @@ namespace DGE_scraper
             return new Riding
                 {
                     Name = GetString(ridingRegex.Match(str)),
-                    ValidVotes = GetInt(validVotesRegex.Match(str)),
                     RejectedVotes = GetInt(rejectedVotesRegex.Match(str)),
                     RegisteredVoters = GetInt(registeredVotersRegex.Match(str)),
                     Candidates = GetCandidateTable(str)
@@ -131,7 +113,7 @@ namespace DGE_scraper
             return int.Parse(string.Join(string.Empty, Regex.Replace(group.Value, @"\s", " ").Split(' ')));
         }
 
-        private static readonly Regex candidateTableRegex = new Regex("^\\[\"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\"]", RegexOptions.Compiled|RegexOptions.Multiline);
+        private static readonly Regex candidateTableRegex = new Regex("^\\[\"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\"\\]", RegexOptions.Compiled|RegexOptions.Multiline);
         private static IDictionary<string, Candidate> GetCandidateTable(string input)
         {
             var matches = candidateTableRegex.Matches(input);
