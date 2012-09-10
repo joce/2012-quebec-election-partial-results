@@ -18,7 +18,7 @@ Pour trouver les résultats préliminaires détaillés, je me suis tourné vers 
 facilement accessible. Les résultats de chaque cisconscription sont storés indépendemment dans autant de fichiers Javascript qu'il y a de cicronscriptions. Et non pas dans un format facilement
 lisible comme JSON, YAML, XML, etc. Non. Le data est sorté dans des variables Javascript (blah!)
 
-J'ai donc du écrire un parser qui load tous les fichiers, ne préserve que les données essentielles (toutes les données qui peuvent être calculées ont été laissées de côté) et domper le tout
+J'ai donc dû écrire un parser qui load tous les fichiers, ne préserve que les données essentielles (toutes les données qui peuvent être calculées ont été laissées de côté) et domper le tout
 dans quelques fichiers CSV.
 
 Voilà.
@@ -26,7 +26,7 @@ Voilà.
 AVIS DE NON-RESPONSABILITÉ
 --------------------------
 
-JE NE ME PORTE PAS GARANT DE LA VALIDITÉ DES RÉSULTATS. ILS SONT À MA CONNAISSANCE IDENTIQUES À CEUX TROUVÉS SUR LE SITE DU DGE, MAIS DES ERREURS AURAIENT PU SE GLISSER DANS MES FICHIER.
+JE NE ME PORTE PAS GARANT DE LA VALIDITÉ DES RÉSULTATS. ILS SONT À MA CONNAISSANCE IDENTIQUES À CEUX TROUVÉS SUR LE SITE DU DGE, MAIS DES ERREURS AURAIENT PU SE GLISSER DANS MES FICHIERS.
 POUR AVOIR LES DONNÉES OFFICIELLES, VEUILLEZ VOUS RÉFÉRER AU SITE DU DGE.
 
 
